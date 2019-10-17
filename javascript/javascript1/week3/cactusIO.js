@@ -47,8 +47,19 @@ function showStatus(){
     
 }
 
+function showTodayStatus(){
+    let todaysActivities = [];
+    for(let i=0; i<activities.length; i++){
+        if(activities[i].date === formatDate(new Date())){
+            todaysActivities.push(`Todays activiety: ${activities[i].activity} and duration: ${activities[i].duration}`);
+        }
+    }
+
+    return todaysActivities;
+}
+
 console.log(addActivity("Facebook", 30));
 console.log(addActivity("Youtube", 20));
 console.log(addActivity("LinkedIn", 25));
-console.log(activities);
 console.log(showStatus());
+console.log(showTodayStatus());
