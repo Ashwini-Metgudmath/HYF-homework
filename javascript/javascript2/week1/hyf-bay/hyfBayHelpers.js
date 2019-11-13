@@ -95,7 +95,7 @@ function renderProducts(availableProducts){
         });
         childUl.appendChild(ulCountries);
         li.appendChild(childUl);
-        console.log(li);
+        //console.log(li);
         ul.appendChild(li);
     });
    
