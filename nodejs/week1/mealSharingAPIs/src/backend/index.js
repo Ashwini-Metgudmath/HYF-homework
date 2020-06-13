@@ -1,14 +1,16 @@
 const express = require('express');
 const app = express();
 
-/*app.use((req, res, next) => {
+app.set('json spaces', 2);
+
+app.use((req, res, next) => {
     console.log("method " + req.method);
     next();
 });
 app.use((req, res, next) => {
     console.log("date " + Date.now());
     next();
-});*/
+});
 
 const mealsRouter = require('../backend/routes/meals');
 app.use('/meals', mealsRouter);
