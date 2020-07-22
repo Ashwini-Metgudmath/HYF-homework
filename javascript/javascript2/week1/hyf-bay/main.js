@@ -11,25 +11,14 @@ function renderProducts(availableProducts){
     availableProducts.forEach(element => {
         //console.log(`element: ${element.name}`);
         li = document.createElement('li');
-        childUl = document.createElement('ul');
-        Name = document.createElement('li');
-        Name.innerHTML = element.name;
-        childUl.appendChild(Name);
-        price = document.createElement('li');
-        price.innerHTML = element.price;
-        childUl.appendChild(price);
-        rating = document.createElement('li');
-        rating.innerHTML = element.rating;
-        childUl.appendChild(rating);
-        ulCountries = document.createElement('ul');
-        element.shipsTo.forEach(country => {
-            childLiCountry = document.createElement('li');
-            childLiCountry.innerHTML = country;
-            ulCountries.appendChild(childLiCountry);
-        });
-        childUl.appendChild(ulCountries);
-        li.appendChild(childUl);
-        //console.log(li);
+        const shipTo = element.shipsTo.reduce((accumulator, currentValue)=> `<ul><li>${accumulator}</li><li>${currentValue}</li></ul>`);
+        li.innerHTML = `
+        <ul>
+            <li>${element.name}</li>
+            <li>${element.price}</li>
+            <li>${element.rating}</li>
+            <li>${shipTo}</li>
+        </ul>`;
         ul.appendChild(li);
     });
    
